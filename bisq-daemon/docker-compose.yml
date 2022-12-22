@@ -18,9 +18,6 @@ services:
       - --nodePort=6969
     volumes:
       - "${APP_DATA_DIR}/data/bisq-daemon:/data/.bisq-daemon"
-    networks:
-      default:
-        ipv4_address: bisq_daemon_1
 
   tor:
     image: getumbrel/tor:0.4.7.8@sha256:2ace83f22501f58857fa9b403009f595137fa2e7986c4fda79d82a8119072b6a
