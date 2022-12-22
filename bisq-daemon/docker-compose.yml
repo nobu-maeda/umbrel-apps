@@ -4,7 +4,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: $APP_BISQ_DAEMON_IP
-      APP_PORT: $APP_BISQ_DAEMON_PORT
+      APP_PORT: $APP_BISQ_DAEMON_GRPC_PORT
   
   bisq-daemon:
     image: nobumaeda/bisq-daemon:v1.9.6-arm64@sha256:a476203ebfe6d9cd0332d6e487d5ce08049117952b742f45cfeb0b7642036392
