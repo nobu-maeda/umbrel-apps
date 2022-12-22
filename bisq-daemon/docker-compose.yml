@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: $APP_BISQ_DAEMON_IP
+      APP_HOST: bisq_daemon_1
       APP_PORT: $APP_BISQ_DAEMON_GRPC_PORT
   
   bisq-daemon:
