@@ -7,7 +7,7 @@ services:
       APP_PORT: $APP_BISQ_DAEMON_GRPC_PORT
   
   bisq-daemon:
-    image: nobumaeda/bisq-daemon:v1.9.6-arm64@sha256:a476203ebfe6d9cd0332d6e487d5ce08049117952b742f45cfeb0b7642036392
+    image: nobumaeda/bisq-daemon:v1.9.6-arm64@sha256:ca3ccad1882ee958c15cb6009f993a537b36f586157d004a8ede5341bdea6ebd
     restart: on-failure
     ports:
       - ${APP_BISQ_DAEMON_GRPC_PORT}:6968
