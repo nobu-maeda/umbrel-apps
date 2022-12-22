@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: $APP_BISQ_DAEMON_IP
+      APP_PORT: $APP_BISQ_DAEMON_PORT
+  
+  bisq-daemon:
+    image: nobumaeda/bisq-daemon:v1.9.6-arm64@sha256:a476203ebfe6d9cd0332d6e487d5ce08049117952b742f45cfeb0b7642036392
+    restart: on-failure
+    ports:
+      - ${APP_BISQ_DAEMON_GRPC_PORT}:6968
+      - ${APP_BISQ_DAEMON_NODE_PORT}:6969
+    command:
+      - --apiPassword=${APP_BISQ_DAEMON_API_PASS}
+      - --apiPort=6968
+      - --nodePort=6969
+    volumes:
+      - "${APP_DATA_DIR}/data/bisq-daemon:/data/.bisq-daemon"
+    networks:
+      default:
+        ipv4_address: ${APP_BISQ_DAEMON_IP}
+
+  tor:
+    image: getumbrel/tor:0.4.7.8@sha256:2ace83f22501f58857fa9b403009f595137fa2e7986c4fda79d82a8119072b6a
+    user: "1000:1000"
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/torrc:/etc/tor/torrc:ro
+      - ${TOR_DATA_DIR}:/data
+    environment:
+      HOME: "/tmp"
