@@ -1,0 +1,7 @@
+# Bisq Daemon Node Hidden Service
+HiddenServiceDir /data/app-$APP_ID-node
+HiddenServicePort $APP_BISQ_DAEMON_NODE_PORT $APP_BISQ_DAEMON_NODE_IP:$APP_BISQ_DAEMON_NODE_PORT
+
+# Bisq Daemon gRPC Hidden Service
+HiddenServiceDir /data/app-$APP_ID-grpc
+HiddenServicePort $APP_BISQ_DAEMON_GRPC_PORT $APP_BISQ_DAEMON_NODE_IP:$APP_BISQ_DAEMON_GRPC_PORT

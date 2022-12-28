@@ -15,7 +15,7 @@ dependencies:
   - bitcoin
 repo: https://github.com/bisq-network/bisq
 support: https://bisq.community
-port: 9998
+port: 6967
 gallery:
 path: ""
 defaultUsername: ""
